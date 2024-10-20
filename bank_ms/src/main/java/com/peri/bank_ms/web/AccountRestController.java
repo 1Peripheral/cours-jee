@@ -23,41 +23,27 @@ public class AccountRestController {
     }
 
     @GetMapping("/bankAccounts")
-    public List<BankAccount> getBankAccounts() {
-        return bankAccountRepo.findAll();
+    public List<BankAccountResponseDTO> getBankAccounts() {
+        return accountService.getAll();
     }
 
     @GetMapping("/bankAccounts/{id}")
-    public BankAccount getBankAccount(@PathVariable  String id) {
-        return bankAccountRepo.findById(id)
-                .orElseThrow(
-                        () -> new RuntimeException(String.format("Account not found (id = %s)", id))
-                );
+    public BankAccountResponseDTO getBankAccount(@PathVariable  String id) {
+        return accountService.get(id);
     }
 
     @PostMapping("/bankAccount")
     public BankAccountResponseDTO saveAccount(@RequestBody BankAccountRequestDTO bankAccount) {
-        return accountService.addAccount(bankAccount);
+        return accountService.add(bankAccount);
     }
 
     @PutMapping("/bankAccounts/{id}")
-    public BankAccount updateAccount(@PathVariable String id, @RequestBody BankAccount bankAccount) {
-        BankAccount account = bankAccountRepo.findById(id).orElseThrow();
-
-        if (account.getCurrency() != null)
-            account.setCurrency(bankAccount.getCurrency());
-        if (account.getBalance() != null)
-            account.setBalance(bankAccount.getBalance());
-        if (account.getType() != null)
-            account.setType(bankAccount.getType());
-
-        return bankAccountRepo.save(account);
+    public BankAccountResponseDTO updateAccount(@PathVariable String id, @RequestBody BankAccountRequestDTO bankAccount) {
+        return accountService.update(id, bankAccount);
     }
 
     @DeleteMapping("/bankAccounts/{id}")
     public void deleteAccount(@PathVariable String id) {
-        bankAccountRepo.deleteById(id);
+        accountService.delete(id);
     }
-
-
 }
