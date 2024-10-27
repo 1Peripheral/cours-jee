@@ -40,6 +40,7 @@ public class AccountServiceImpl implements IAccountService {
 
    public List<BankAccountResponseDTO> getAll() {
       List<BankAccount> bankAccounts = bankRepo.findAll();
+
       return bankAccounts.stream()
               .map(account -> accountMapper.toBankAccountResponseDTO(account))
               .toList();
