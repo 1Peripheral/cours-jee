@@ -7,14 +7,14 @@ spring:
   cloud:
     discovery:
       enabled: true
-#    gateway:
-#      mvc:
-#        routes:
-#          - id: customers-route
-#            uri: http://localhost:8081
-#            predicates:
-#              - Path= /customers/**
-#          - id: inventory-route
-#            uri: http://localhost:8082
-#            predicates:
-#              - Path= /products/**
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowed-origins: "http://localhost:5173"
+            allowed-headers: "*"
+            allowed-methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE

@@ -1,5 +1,6 @@
 package com.peri.billingservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.peri.billingservice.models.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ public class ProductItem {
     private Long id;
     private Long productId;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Bill bill;
     private Integer quantity;
     private Double price;
