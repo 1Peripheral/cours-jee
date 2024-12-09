@@ -18,7 +18,7 @@
                     <td>{customer.id}</td>
                     <td>{customer.name}</td>
                     <td>{customer.email}</td>
-                    <td><a href="/"><button>Bills</button></a></td>
+                    <td><a href="/bills/{customer.id}"><button>Bills</button></a></td>
                 </tr>
             {/each}
         </tbody>
