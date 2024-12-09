@@ -5,7 +5,6 @@ import com.peri.billingservice.repositories.BillRepository;
 import com.peri.billingservice.repositories.ProductItemRepository;
 import com.peri.billingservice.feign.CustomerRestClient;
 import com.peri.billingservice.feign.ProductRestClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
