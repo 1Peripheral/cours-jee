@@ -5,7 +5,7 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/inventory-service" />
-        <option name="gradleJvm" value="22" />
+        <option name="gradleJvm" value="corretto-22" />
       </GradleProjectSettings>
     </option>
   </component>
